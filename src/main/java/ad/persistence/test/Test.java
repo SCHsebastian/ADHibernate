@@ -1,6 +1,6 @@
 package ad.persistence.test;
 
-import ad.persistence.domain.Tramite;
+import ad.persistence.domain.Tramit;
 import ad.persistence.util.HibernateUtil;
 import org.hibernate.Session;
 
@@ -13,7 +13,7 @@ public class Test {
         session.beginTransaction();
 
         Date date = new Date();
-        Tramite tramite = new Tramite();
+        Tramit tramite = new Tramit();
         tramite.setFechaTramite(new Timestamp(date.getTime()));
         tramite.setTipoTramite("Credito");
 

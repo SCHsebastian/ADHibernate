@@ -15,8 +15,11 @@
         <!-- Database dialect -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
+        <!-- Hibernate settings -->
+        <property name="hibernate.show_sql">true</property>
+
         <!-- Mapeado basado en anotaciones -->
-        <mapping class="ad.persistence.domain.Tramite"></mapping>
+        <mapping class="ad.persistence.domain.Tramit"></mapping>
 
     </session-factory>
 </hibernate-configuration>

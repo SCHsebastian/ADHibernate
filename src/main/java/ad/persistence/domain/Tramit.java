@@ -5,25 +5,24 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name="tramit")
-public class Tramite {
+public class Tramit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTramite;
-
+    private int idTramit;
 
     private String tipoTramite;
 
     private Timestamp fechaTramite;
 
-    public Tramite(){}
+    public Tramit(){}
 
-    public int getIdTramite(){
-        return idTramite;
+    public int getIdTramit(){
+        return idTramit;
     }
 
-    public void setIdTramite(int idTramite){
-        this.idTramite = idTramite;
+    public void setIdTramit(int idTramit){
+        this.idTramit = idTramit;
     }
 
     public String getTipoTramite() {
