@@ -15,7 +15,15 @@ public class Tramit {
 
     private Timestamp fechaTramite;
 
+    @OneToOne(mappedBy = "tramit")
+    private Pressupost pressupost;
+
     public Tramit(){}
+
+    public Tramit(String tipoTramite, Timestamp fechaTramite) {
+        this.tipoTramite = tipoTramite;
+        this.fechaTramite = fechaTramite;
+    }
 
     public int getIdTramit(){
         return idTramit;

@@ -1,4 +1,4 @@
-package ad.persistence.test;
+package ad.persistence.pdf1;
 
 import ad.persistence.domain.Tramit;
 import ad.persistence.domain.Tramit_;

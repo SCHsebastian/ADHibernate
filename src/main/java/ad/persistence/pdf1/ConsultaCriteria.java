@@ -1,4 +1,4 @@
-package ad.persistence.test;
+package ad.persistence.pdf1;
 
 import ad.persistence.domain.Tramit;
 import ad.persistence.util.HibernateUtil;
@@ -9,23 +9,17 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class ConsultaPersonalizadaCriteria {
+public class ConsultaCriteria {
     public static void main(String[] args) {
-        // Base
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Tramit> criteria = builder.createQuery(Tramit.class);
 
         Root<Tramit> root = criteria.from(Tramit.class);
 
-        // Construyendo la consulta
-        criteria.select(root)
-                .where(builder.equal(root.get("tipoTramite"), "Credito"));
-
-        // Ejecutando la consulta
+        criteria.select(root);
 
         List<Tramit> result = session.createQuery(criteria).getResultList();
         result.forEach(System.out::println);

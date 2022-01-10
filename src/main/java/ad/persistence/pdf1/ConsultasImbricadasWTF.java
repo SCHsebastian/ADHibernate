@@ -1,4 +1,4 @@
-package ad.persistence.test;
+package ad.persistence.pdf1;
 
 import ad.persistence.domain.Tramit;
 import ad.persistence.domain.Tramit_;
@@ -9,8 +9,12 @@ import org.hibernate.Transaction;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
-public class Update {
+public class ConsultasImbricadasWTF {
     public static void main(String[] args) {
         Session session = null;
         Transaction txn = null;
@@ -23,13 +27,19 @@ public class Update {
 
             Root<Tramit> root = criteria.from(Tramit.class);
 
+            SimpleDateFormat sdf = new SimpleDateFormat();
+            Date date = sdf.parse("01/01/2017");
+            Timestamp timestamp = new Timestamp(date.getTime());
+
+
             criteria.select(root)
-                    .where(builder.equal(root.get(Tramit_.tipoTramite), "Aval"));
+                    .where(builder
+                            .like(root.get(Tramit_.tipoTramite), "%Proyecto%"))
+                    .where(builder
+                            .lessThan(root.get(Tramit_.fechaTramite), timestamp));
 
-            Tramit tramit = session.createQuery(criteria).getSingleResult();
-            tramit.setTipoTramite("Proyecto Software");
-
-            session.update(tramit);
+            List<Tramit> result = session.createQuery(criteria).getResultList();
+            result.forEach(tramit -> System.out.println(tramit.getTipoTramite()));
 
             txn.commit();
         } catch (Exception e) {

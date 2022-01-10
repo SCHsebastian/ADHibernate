@@ -2,5 +2,7 @@
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig" ddlActionDbType="mysql">
     <option name="defaultUnitInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="04efeb13-bc29-409c-8efb-a15bcdcac03d" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/ad/persistence/domain" />
   </component>
 </project>
